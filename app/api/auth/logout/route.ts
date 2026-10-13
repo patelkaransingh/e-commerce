@@ -1,0 +1,20 @@
+import { NextResponse } from "next/server";
+
+export async function POST() {
+  const response = NextResponse.json(
+    {
+      message: "Loggged Out!",
+    },
+    { status: 200 },
+  );
+
+  response.cookies.set(process.env.JWT_COOKIE_NAME!, "", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "strict",
+    maxAge: 0,
+    path: "/",
+  });
+
+  return response;
+}
