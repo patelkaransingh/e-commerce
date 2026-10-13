@@ -178,7 +178,9 @@ body {
   }
 
   .hero {
-    @apply flex flex-col gap-2 min-h-[80vh] items-center justify-center bg-linear-to-br from-primary to-primary-dark p-8 text-center text-white;
+    @apply p-8 flex flex-col gap-2 min-h-[80vh]
+    items-center justify-center from-primary text-center text-white
+    bg-white bg-[radial-gradient(circle_at_center,var(--color-primary),transparent)];
 
     h1 {
       @apply text-3xl font-extrabold;

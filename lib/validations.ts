@@ -2,7 +2,13 @@ import { z } from "zod";
 
 export const registerSchema = z
   .object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
+    name: z
+      .string()
+      .min(2, "Name must be at least 2 characters")
+      .regex(
+        /^[a-zA-Z0-9_]+$/,
+        "Only letters, numbers, and underscores are allowed",
+      ),
     email: z.email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters"),
     confirmPassword: z
@@ -14,7 +20,7 @@ export const registerSchema = z
     path: ["confirmPassword"],
   });
 
-export const loginSchema = z.object({
+export const loginResolver = z.object({
   email: z.email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
@@ -28,5 +34,5 @@ export const addressSchema = z.object({
 });
 
 export type TRegisterInput = z.infer<typeof registerSchema>;
-export type TLoginInput = z.infer<typeof loginSchema>;
+export type TLoginInput = z.infer<typeof loginResolver>;
 export type TaddressInput = z.infer<typeof addressSchema>;

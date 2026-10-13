@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { registerSchema, type TRegisterInput } from "@/lib/validations";
+import { Spinner } from "@/components/ui/spinner";
 
 function RegistrationForm() {
   const router = useRouter();
@@ -37,6 +38,7 @@ function RegistrationForm() {
       password: "",
       confirmPassword: "",
     },
+    mode: "onBlur",
   });
 
   const onSubmit = async (data: TRegisterInput) => {
@@ -74,7 +76,9 @@ function RegistrationForm() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Create your account</CardTitle>
+        <CardTitle className="text-xl text-primary font-bold">
+          Create your account
+        </CardTitle>
         <CardDescription>
           Sign up to start shopping and keep track of your orders.
         </CardDescription>
@@ -83,7 +87,7 @@ function RegistrationForm() {
         {serverError && (
           <Alert variant="destructive" className="mb-5">
             <TriangleAlert />
-            <AlertTitle>Could not create account</AlertTitle>
+            <AlertTitle>Login Error!</AlertTitle>
             <AlertDescription>{serverError}</AlertDescription>
           </Alert>
         )}
@@ -179,12 +183,19 @@ function RegistrationForm() {
               className="w-full"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Creating account..." : "Create account"}
+              {isSubmitting ? (
+                <>
+                  <Spinner data-icon="inline-start" />
+                  Creating Account
+                </>
+              ) : (
+                `Create account`
+              )}
             </Button>
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="gap-2 text-sm text-muted-foreground">
+      <CardFooter className="gap-2 justify-center text-sm text-muted-foreground">
         <span>Already have an account?</span>
         <Link
           className="font-medium text-primary underline-offset-4 hover:underline"
