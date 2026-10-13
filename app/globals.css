@@ -221,4 +221,13 @@ body {
       }
     }
   }
+
+  .form-wrapper {
+    @apply absolute h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)];
+  }
+
+  .server-error {
+    @apply px-3 py-1 rounded-xl flex gap-2 items-center
+    bg-red-50 border border-red-200 text-red-600 text-sm font-medium;
+  }
 }
