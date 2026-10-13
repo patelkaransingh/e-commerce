@@ -1,6 +1,13 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { TriangleAlert } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -11,73 +18,90 @@ import {
 } from "@/components/ui/card";
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field";
-import { registerSchema, TRegisterInput } from "@/lib/validations";
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { TriangleAlert } from "lucide-react";
-import { Input } from "@base-ui/react";
+import { Input } from "@/components/ui/input";
+import { registerSchema, type TRegisterInput } from "@/lib/validations";
 
 function RegistrationForm() {
-  // const router = useRouter();
+  const router = useRouter();
   const [serverError, setServerError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<TRegisterInput>({
     resolver: zodResolver(registerSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = form;
-
   const onSubmit = async (data: TRegisterInput) => {
-    console.log(data);
+    setServerError(null);
+
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        setServerError(
+          typeof result.message === "string"
+            ? result.message
+            : "Unable to create your account. Please try again.",
+        );
+        return;
+      }
+
+      router.push("/login");
+    } catch {
+      setServerError("Unable to create your account. Please try again.");
+    }
   };
 
+  const isSubmitting = form.formState.isSubmitting;
+
   return (
-    <Card className="w-full sm:max-w-md">
+    <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Create Account</CardTitle>
-        <CardDescription className="text-gray-600">
-          Share you details so we can get you shopping..
+        <CardTitle>Create your account</CardTitle>
+        <CardDescription>
+          Sign up to start shopping and keep track of your orders.
         </CardDescription>
       </CardHeader>
       <CardContent>
         {serverError && (
-          <Alert className="bg-red-50 border border-red-200 text-red-600">
+          <Alert variant="destructive" className="mb-5">
             <TriangleAlert />
-            <AlertTitle>Server Error !</AlertTitle>
-            <AlertDescription className="text-red-900">
-              {serverError}
-            </AlertDescription>
+            <AlertTitle>Could not create account</AlertTitle>
+            <AlertDescription>{serverError}</AlertDescription>
           </Alert>
         )}
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FieldGroup>
+        <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
+          <FieldGroup className="gap-4">
             <Controller
               name="name"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">
-                    {field.name}
-                  </FieldLabel>
+                  <FieldLabel htmlFor="register-name">Full name</FieldLabel>
                   <Input
                     {...field}
-                    id="form-rhf-demo-title"
+                    id="register-name"
+                    type="text"
+                    autoComplete="name"
+                    placeholder="Jane Doe"
                     aria-invalid={fieldState.invalid}
-                    placeholder="Login button not working on mobile"
-                    autoComplete="off"
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -85,13 +109,88 @@ function RegistrationForm() {
                 </Field>
               )}
             />
+            <Controller
+              name="email"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="register-email">
+                    Email address
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="register-email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="password"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="register-password">Password</FieldLabel>
+                  <Input
+                    {...field}
+                    id="register-password"
+                    type="password"
+                    autoComplete="new-password"
+                    placeholder="At least 6 characters"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="confirmPassword"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="register-confirm-password">
+                    Confirm password
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="register-confirm-password"
+                    type="password"
+                    autoComplete="new-password"
+                    placeholder="Re-enter your password"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Creating account..." : "Create account"}
+            </Button>
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="gap-3 text-gray-600">
-        <p>Already have account ?</p>{" "}
-        <Link className="font-bold" href="/login">
-          Login
+      <CardFooter className="gap-2 text-sm text-muted-foreground">
+        <span>Already have an account?</span>
+        <Link
+          className="font-medium text-primary underline-offset-4 hover:underline"
+          href="/login"
+        >
+          Log in
         </Link>
       </CardFooter>
     </Card>

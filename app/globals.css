@@ -223,7 +223,7 @@ body {
   }
 
   .form-wrapper {
-    @apply absolute h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)];
+    @apply flex flex-1 items-center justify-center px-5 py-12 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)];
   }
 
   .server-error {
