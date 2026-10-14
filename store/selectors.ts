@@ -1,4 +1,4 @@
-import { RootState } from "./index";
+import type { RootState } from "./index";
 
 export const selectUser = (state: RootState) => state.authReducer.user;
 export const selectIsAuthenticated = (state: RootState) =>
