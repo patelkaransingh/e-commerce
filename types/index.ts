@@ -1,5 +1,5 @@
+import type { Types } from "mongoose";
 import Product from "@/models/Product.model";
-import { Types } from "mongoose";
 
 export type TProduct = {
   _id: Types.ObjectId;
@@ -34,6 +34,15 @@ export type TPermission =
   | "order:write"
   | "user:read"
   | "user:write";
+
+export type TAuthUser = {
+  _id: string;
+  name: string;
+  email: string;
+  role: TRole;
+  permissions: TPermission[];
+  avatar: string;
+};
 
 export type TAddress = {
   _id: Types.ObjectId;

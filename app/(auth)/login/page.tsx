@@ -25,12 +25,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 import { loginResolver, type TLoginInput } from "@/lib/validations";
+import { useAppDispatch } from "@/store/hook";
+import { setUser } from "@/store/slice/authSlice";
 
 function LoginForm() {
   const seachParams = useSearchParams();
   const redirectTo = seachParams.get("redirect") || "/";
 
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [serverError, setServerError] = useState<string | null>(null);
 
   const form = useForm<TLoginInput>({
@@ -53,16 +56,18 @@ function LoginForm() {
         }),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        const error = await response.json();
         setServerError(
-          typeof error.message === "string"
-            ? error.message
+          typeof result.message === "string"
+            ? result.message
             : "Something went wrong while logging in.",
         );
         return;
       }
 
+      dispatch(setUser(result.user));
       router.push(redirectTo);
       router.refresh();
     } catch {

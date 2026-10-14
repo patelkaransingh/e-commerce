@@ -1,7 +1,7 @@
+import { type NextRequest, NextResponse } from "next/server";
 import { generateToken, hashPassword } from "@/lib/auth";
 import { connectDB } from "@/lib/db";
 import User from "@/models/User.model";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
@@ -61,10 +61,12 @@ export async function POST(request: NextRequest) {
       {
         message: "User registered successfully",
         user: {
-          _id: newUser._id,
+          _id: newUser._id.toString(),
           name: newUser.name,
           email: newUser.email,
           role: newUser.role,
+          permissions: newUser.permissions,
+          avatar: newUser.avatar,
         },
       },
       { status: 201 },

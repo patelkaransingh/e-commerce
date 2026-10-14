@@ -23,11 +23,14 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { registerSchema, type TRegisterInput } from "@/lib/validations";
 import { Spinner } from "@/components/ui/spinner";
+import { registerSchema, type TRegisterInput } from "@/lib/validations";
+import { useAppDispatch } from "@/store/hook";
+import { setUser } from "@/store/slice/authSlice";
 
 function RegistrationForm() {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [serverError, setServerError] = useState<string | null>(null);
 
   const form = useForm<TRegisterInput>({
@@ -65,7 +68,8 @@ function RegistrationForm() {
         return;
       }
 
-      router.push("/login");
+      dispatch(setUser(result.user));
+      router.replace("/");
       router.refresh();
     } catch {
       setServerError("Unable to create your account. Please try again.");
