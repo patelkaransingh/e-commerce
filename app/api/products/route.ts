@@ -1,6 +1,5 @@
 import { connectDB } from "@/lib/db";
 import Product from "@/models/Product.model";
-import { TFilters } from "@/types";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {

@@ -865,7 +865,7 @@ const products = [
     price: 3499,
     comparePrice: 4999,
     images: [
-      "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600",
+      "https://images.unsplash.com/photo-1564286027156-9ad736dfbbbb?q=80&w=1072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     ],
     category: "electronics",
     brand: "anker",

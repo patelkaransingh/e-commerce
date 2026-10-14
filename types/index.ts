@@ -44,6 +44,12 @@ export type TFilters = {
   ratings: number[];
 };
 
+export type TProductsResponse = {
+  products: TProduct[];
+  pagination: TPagination;
+  filters: TFilters;
+};
+
 export type TRole = "customer" | "admin" | "superadmin";
 
 export type TPermission =
