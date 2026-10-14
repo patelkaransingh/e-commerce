@@ -64,6 +64,7 @@ function LoginForm() {
       }
 
       router.push(redirectTo);
+      router.refresh();
     } catch {
       setServerError("Something went wrong while logging in.");
     }

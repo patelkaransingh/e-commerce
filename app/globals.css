@@ -162,7 +162,7 @@ body {
 
 @layer components {
   .navbar {
-    @apply sticky top-0 z-100 bg-surface border-b border-border shadow-sm;
+    @apply sticky top-0 z-50 bg-surface border-b border-border shadow-sm;
 
     .nav-items-wrapper {
       @apply mx-auto flex h-16 max-w-300 items-center justify-between px-6;
@@ -173,7 +173,7 @@ body {
     }
 
     .navbar-links {
-      @apply flex gap-8;
+      @apply flex gap-6 items-center;
 
       .link {
         @apply hover:text-primary;
@@ -235,5 +235,30 @@ body {
   .server-error {
     @apply px-3 py-1 rounded-xl flex gap-2 items-center
     bg-red-50 border border-red-200 text-red-600 text-sm font-medium;
+  }
+
+  @keyframes ghost-float {
+    0%,
+    100% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+
+  .ghost-float {
+    animation: ghost-float 3s ease-in-out infinite alternate;
+  }
+
+  .cart-icon-wrapper {
+    @apply relative inline-flex;
+
+    .cart-count {
+      @apply absolute top-0 left-0 translate-x-2/3 -translate-y-2/3
+        flex items-center justify-center h-4 min-w-4
+        rounded-full bg-primary px-1
+        text-[10px] leading-none text-primary-foreground;
+    }
   }
 }

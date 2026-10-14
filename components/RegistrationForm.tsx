@@ -66,6 +66,7 @@ function RegistrationForm() {
       }
 
       router.push("/login");
+      router.refresh();
     } catch {
       setServerError("Unable to create your account. Please try again.");
     }
