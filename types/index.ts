@@ -25,6 +25,25 @@ export type TProduct = {
   updatedAt: string;
 };
 
+export type TPagination = {
+  page: number;
+  limit: number;
+  totalCount: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+};
+
+export type TFilters = {
+  categories: string[];
+  brands: string[];
+  priceRange: {
+    min: number;
+    max: number;
+  };
+  ratings: number[];
+};
+
 export type TRole = "customer" | "admin" | "superadmin";
 
 export type TPermission =

@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema(
       required: [true, "Description is required"],
       trim: true,
       minlength: [10, "Description must be at least 10 characters"],
-      maxLength: [5000, "Description cannot be more than 5000 characters"],
+      maxLength: [700, "Description cannot be more than 700 characters"],
     },
     price: {
       type: Number,
@@ -112,15 +112,17 @@ productSchema.index({ price: 1 });
 
 productSchema.index({ name: "text", description: "text", tags: "text" });
 
-/* productSchema.virtual("discountPercentage").get(function () {
+productSchema.virtual("discountPercentage").get(function () {
   if (!this.comparePrice || this.comparePrice < this.price) return 0;
+
   if (this.comparePrice && this.comparePrice > 0) {
     return Math.round(
       ((this.comparePrice - this.price) / this.comparePrice) * 100,
     );
   }
+
   return 0;
-}); */
+});
 
 const Product =
   mongoose.models.Product || mongoose.model("Product", productSchema);
