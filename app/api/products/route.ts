@@ -1,6 +1,6 @@
+import type { NextRequest } from "next/server";
 import { connectDB } from "@/lib/db";
 import Product from "@/models/Product.model";
-import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
@@ -90,6 +90,8 @@ export async function GET(request: NextRequest) {
         Product.aggregate([
           {
             $match: { isActive: true },
+          },
+          {
             $group: {
               _id: null,
               min: { $min: "$price" },
@@ -99,8 +101,8 @@ export async function GET(request: NextRequest) {
         ]),
       ]);
 
-    const totalPage = Math.ceil(totalCount / Number(limit));
-    const hasNextPage = Number(page) < totalPage;
+    const totalPages = Math.ceil(totalCount / Number(limit));
+    const hasNextPage = Number(page) < totalPages;
     const hasPrevPage = Number(page) > 1;
     const priceRange = priceRangeResult[0] || { min: 0, max: 0 };
     const ratings = [4, 3, 2, 1];
@@ -112,7 +114,7 @@ export async function GET(request: NextRequest) {
           page,
           limit,
           totalCount,
-          totalPage,
+          totalPages,
           hasNextPage,
           hasPrevPage,
         },
@@ -130,5 +132,9 @@ export async function GET(request: NextRequest) {
     );
   } catch (error) {
     console.error("something went wrong while getting products", error);
+    return Response.json(
+      { error: "Failed to fetch products" },
+      { status: 500 },
+    );
   }
 }

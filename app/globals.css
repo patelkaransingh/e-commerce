@@ -195,6 +195,10 @@ body {
     }
   }
 
+  .content-wrapper {
+    @apply max-w-300 mx-auto px-6 py-10 min-h-[80vh];
+  }
+
   .footer {
     @apply bg-text text-white;
     .footer-inner {

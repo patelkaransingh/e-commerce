@@ -7,7 +7,12 @@ async function ProductsPage({ searchParams }: TProps) {
   const params = await searchParams;
   const { products, pagination, filters } = await getProducts(params);
 
-  return <div className="min-h-screen bg-gray-900">ProductsPage</div>;
+  console.log(products);
+  return (
+    <div>
+      <div className="content-wrapper"></div>
+    </div>
+  );
 }
 
 export default ProductsPage;
