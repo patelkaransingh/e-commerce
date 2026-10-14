@@ -32,24 +32,25 @@ function NavBar() {
           {!isLoading && (
             <>
               {isAuthenticated ? (
-                <div>
+                <>
                   {isAdmin && (
                     <Link href="/admin" className="link">
                       Dashboard
                     </Link>
                   )}
 
-                  <Separator orientation="vertical" />
-
                   <Link
                     href="/profile"
                     className="flex items-center gap-1 text-gray-600 font-bold"
                   >
-                    {" "}
+                    <Separator
+                      orientation="vertical"
+                      className="h-6 mr-2 bg-gray-800"
+                    />{" "}
                     Hi {user?.name.split(" ")[0]}
                     <User size={18} strokeWidth={2.5} />
                   </Link>
-                </div>
+                </>
               ) : (
                 <Link href="/login">Login</Link>
               )}
