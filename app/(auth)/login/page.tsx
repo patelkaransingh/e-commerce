@@ -23,11 +23,10 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { loginResolver, TLoginInput } from "@/lib/validations";
 import { Spinner } from "@/components/ui/spinner";
-import { email } from "zod";
+import { loginResolver, type TLoginInput } from "@/lib/validations";
 
-function Login() {
+function LoginForm() {
   const seachParams = useSearchParams();
   const redirectTo = seachParams.get("redirect") || "/";
 
@@ -43,7 +42,7 @@ function Login() {
   });
 
   const onSubmit = async ({ email, password }: TLoginInput) => {
-    console.log(email);
+    setServerError(null);
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
@@ -55,7 +54,6 @@ function Login() {
       });
 
       if (!response.ok) {
-        console.log(response);
         const error = await response.json();
         setServerError(
           typeof error.message === "string"
@@ -66,7 +64,7 @@ function Login() {
       }
 
       router.push(redirectTo);
-    } catch (error) {
+    } catch {
       setServerError("Something went wrong while logging in.");
     }
   };
@@ -78,17 +76,15 @@ function Login() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-xl text-primary font-bold">
-            Create your account
+            Welcome back!
           </CardTitle>
-          <CardDescription>
-            Sign up to start shopping and keep track of your orders.
-          </CardDescription>
+          <CardDescription>Login to your shopify account.</CardDescription>
         </CardHeader>
         <CardContent>
           {serverError && (
             <Alert variant="destructive" className="mb-5">
               <TriangleAlert />
-              <AlertTitle>Error!</AlertTitle>
+              <AlertTitle>Login error!</AlertTitle>
               <AlertDescription>{serverError}</AlertDescription>
             </Alert>
           )}
@@ -99,15 +95,13 @@ function Login() {
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="register-email">
-                      Email address
-                    </FieldLabel>
+                    <FieldLabel htmlFor="register-email">Email</FieldLabel>
                     <Input
                       {...field}
                       id="register-email"
                       type="email"
                       autoComplete="email"
-                      placeholder="you@example.com"
+                      placeholder="your registered email.."
                       aria-invalid={fieldState.invalid}
                     />
                     {fieldState.invalid && (
@@ -122,14 +116,12 @@ function Login() {
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="register-password">
-                      Password
-                    </FieldLabel>
+                    <FieldLabel htmlFor="login-password">Password</FieldLabel>
                     <Input
                       {...field}
-                      id="register-password"
+                      id="login-password"
                       type="password"
-                      autoComplete="new-password"
+                      autoComplete="current-password"
                       placeholder="At least 6 characters"
                       aria-invalid={fieldState.invalid}
                     />
@@ -152,19 +144,19 @@ function Login() {
                     Logging In..
                   </>
                 ) : (
-                  `Create account`
+                  "Log in"
                 )}
               </Button>
             </FieldGroup>
           </form>
         </CardContent>
         <CardFooter className="gap-2 justify-center text-sm text-muted-foreground">
-          <span>Already have an account?</span>
+          <span>Don't have an account?</span>
           <Link
             className="font-medium text-primary underline-offset-4 hover:underline"
-            href="/login"
+            href="/register"
           >
-            Log in
+            Register
           </Link>
         </CardFooter>
       </Card>
@@ -172,4 +164,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import ReduxProvider from "@/store/Provider";
+import AuthInitializer from "@/components/auth/AuthInitializer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -39,9 +41,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="min-h-full flex flex-col">
-        <NavBar />
-        {children}
-        <Footer />
+        <ReduxProvider>
+          <AuthInitializer />
+          <NavBar />
+          {children}
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );

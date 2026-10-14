@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
 
     response.cookies.set(process.env.JWT_COOKIE_NAME!, token, {
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       maxAge: 7 * 24 * 60 * 60, // 7 days
       path: "/",
     });

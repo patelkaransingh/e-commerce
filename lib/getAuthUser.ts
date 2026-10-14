@@ -1,7 +1,7 @@
 import { TPermission, Tuser } from "@/types";
 import { NextRequest } from "next/server";
-import { hasPermission, verifyToken } from "./auth";
-import { connectDB } from "./db";
+import { hasPermission, verifyToken } from "@/lib/auth";
+import { connectDB } from "@/lib/db";
 import User from "@/models/User.model";
 
 export class AuthError extends Error {
