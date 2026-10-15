@@ -113,15 +113,13 @@ productSchema.index({ price: 1 });
 productSchema.index({ name: "text", description: "text", tags: "text" });
 
 productSchema.virtual("discountPercentage").get(function () {
-  if (!this.comparePrice || this.comparePrice < this.price) return 0;
+  if (!this.comparePrice || this.comparePrice === this.price) return 0;
 
-  if (this.comparePrice && this.comparePrice > 0) {
-    return Math.round(
-      ((this.comparePrice - this.price) / this.comparePrice) * 100,
-    );
-  }
-
-  return 0;
+  const discount =
+    this.comparePrice > this.price
+      ? (this.comparePrice - this.price) / this.comparePrice
+      : (this.price - this.comparePrice) / this.price;
+  return Math.round(discount * 100);
 });
 
 const Product =

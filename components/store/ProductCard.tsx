@@ -20,15 +20,40 @@ type ProductProps = {
 function ProductCard({ product }: ProductProps) {
   return (
     <Link href={`/products/${product.slug}`}>
-      <div className="relative aspect-square bg-bg overflow-hidden">
-        <Image
+      <Card className="relative mx-auto w-full max-w-sm pt-0">
+        <div className="absolute inset-0 z-5 aspect-square bg-black/35" />
+        <img
           src={product.images[0]}
-          alt="product.slug"
-          className="object-cover"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          fill
+          alt={product.slug}
+          className="relative z-10 aspect-square w-full object-cover"
         />
-      </div>
+
+        {product.stock > 0 ? (
+          // show discount if there is stock
+          product.discountPercentage > 0 && (
+            <Badge className="corner-tag font-semibold">
+              {product.discountPercentage}% off
+            </Badge>
+          )
+        ) : (
+          // else show out of stock
+          <Badge variant={"destructive"} className="corner-tag font-semibold">
+            Out of Stock!
+          </Badge>
+        )}
+
+        <CardHeader>
+          <CardAction>
+            <Badge variant="secondary">Featured</Badge>
+          </CardAction>
+          <CardTitle>Design systems meetup</CardTitle>
+          <CardDescription>
+            A practical talk on component APIs, accessibility, and shipping
+            faster.
+          </CardDescription>
+        </CardHeader>
+        <CardFooter>footer</CardFooter>
+      </Card>
     </Link>
   );
 }

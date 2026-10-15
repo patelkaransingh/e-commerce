@@ -11,27 +11,35 @@ async function ProductsPage({ searchParams }: TProps) {
 
   console.log(products);
   return (
-    <div>
-      <div className="content-wrapper">
-        {products.length == 0 ? (
+    <>
+      {products.length == 0 ? (
+        <div>
           <ProductsFallback />
-        ) : (
-          <div>
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-800">All Products</h1>
-              <span className="text-muted-foreground mt-4">
-                {pagination.totalCount} products available
-              </span>
-            </div>
-            <div className="product-grid">
-              {products.map((product) => (
-                <ProductCard key={product.slug} product={product} />
-              ))}
+        </div>
+      ) : (
+        <div>
+          <div className="gradient-grid-bg min-h-screen w-full">
+            <div className="content-wrapper">
+              <div>
+                <div className="mb-8">
+                  <h1 className="text-3xl font-bold text-gray-800">
+                    All Products
+                  </h1>
+                  <span className="text-muted-foreground mt-4">
+                    {pagination.totalCount} products available
+                  </span>
+                </div>
+                <div className="product-grid">
+                  {products.map((product) => (
+                    <ProductCard key={product.slug} product={product} />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   );
 }
 

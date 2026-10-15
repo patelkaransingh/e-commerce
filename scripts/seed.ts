@@ -11,7 +11,7 @@ const products = [
     description:
       "Powerful and portable tablet with M2 chip and Liquid Retina display.",
     price: 59900,
-    comparePrice: 69900,
+    comparePrice: 53910,
     images: ["https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600"],
     category: "electronics",
     brand: "apple",
@@ -31,7 +31,7 @@ const products = [
     images: ["https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=600"],
     category: "electronics",
     brand: "apple",
-    stock: 60,
+    stock: 0,
     ratings: { average: 4.6, count: 203 },
     isFeatured: true,
     tags: ["smartwatch", "apple", "wearable", "best-seller"],
@@ -43,7 +43,7 @@ const products = [
     description:
       "Wireless earbuds with active noise cancellation and adaptive audio.",
     price: 24900,
-    comparePrice: 26900,
+    comparePrice: 19920,
     images: [
       "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600",
     ],
@@ -69,7 +69,7 @@ const products = [
     images: ["https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600"],
     category: "electronics",
     brand: "samsung",
-    stock: 22,
+    stock: 0,
     ratings: { average: 4.5, count: 76 },
     isFeatured: false,
     tags: ["tablet", "samsung", "android", "new-arrivals"],
@@ -80,7 +80,7 @@ const products = [
     slug: "samsung-galaxy-buds2-pro",
     description: "Compact wireless earbuds with intelligent ANC and 360 audio.",
     price: 17999,
-    comparePrice: 21999,
+    comparePrice: 12600,
     images: [
       "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",
     ],
@@ -102,7 +102,7 @@ const products = [
     description:
       "Next-gen gaming console with ultra-high speed SSD and 4K gaming.",
     price: 54990,
-    comparePrice: 59990,
+    comparePrice: 49491,
     images: [
       "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600",
     ],
@@ -125,7 +125,7 @@ const products = [
     ],
     category: "electronics",
     brand: "sony",
-    stock: 8,
+    stock: 0,
     ratings: { average: 4.8, count: 54 },
     isFeatured: false,
     tags: ["camera", "sony", "photography", "new-arrivals"],
@@ -136,7 +136,7 @@ const products = [
     slug: "dell-inspiron-14",
     description: "Reliable everyday laptop with Intel Core i5 and slim design.",
     price: 64990,
-    comparePrice: 74990,
+    comparePrice: 55242,
     images: [
       "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",
     ],
@@ -154,7 +154,7 @@ const products = [
     description:
       "Gaming laptop with RTX graphics and high refresh rate display.",
     price: 84990,
-    comparePrice: 94990,
+    comparePrice: 67992,
     images: [
       "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600",
     ],
@@ -172,7 +172,7 @@ const products = [
     description:
       "Business ultrabook with legendary keyboard and military-grade durability.",
     price: 149990,
-    comparePrice: 169990,
+    comparePrice: 112492,
     images: [
       "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600",
     ],
@@ -190,7 +190,7 @@ const products = [
     description:
       "27-inch QHD gaming monitor with 165Hz refresh rate and G-Sync.",
     price: 32990,
-    comparePrice: 38990,
+    comparePrice: 23093,
     images: [
       "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600",
     ],
@@ -208,7 +208,7 @@ const products = [
     description:
       "Advanced wireless mouse with quiet clicks and precision scrolling.",
     price: 8995,
-    comparePrice: 10995,
+    comparePrice: 8095,
     images: [
       "https://images.unsplash.com/photo-1527814050087-3793815479db?w=600",
     ],
@@ -230,7 +230,7 @@ const products = [
     description:
       "Wireless illuminated keyboard with comfortable typing experience.",
     price: 10995,
-    comparePrice: 12995,
+    comparePrice: 9346,
     images: [
       "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600",
     ],
@@ -251,7 +251,7 @@ const products = [
     slug: "jbl-flip-6",
     description: "Portable waterproof Bluetooth speaker with bold sound.",
     price: 8999,
-    comparePrice: 11999,
+    comparePrice: 7199,
     images: [
       "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600",
     ],
@@ -273,7 +273,7 @@ const products = [
     description:
       "Premium noise cancelling headphones with immersive spatial audio.",
     price: 35900,
-    comparePrice: 39900,
+    comparePrice: 26925,
     images: ["https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600"],
     category: "electronics",
     brand: "bose",
@@ -292,7 +292,7 @@ const products = [
     slug: "nike-air-force-1",
     description: "Timeless classic sneakers with clean leather upper.",
     price: 8295,
-    comparePrice: 9995,
+    comparePrice: 5807,
     images: [
       "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600",
     ],
@@ -310,7 +310,7 @@ const products = [
     description:
       "Responsive everyday running shoes with React foam cushioning.",
     price: 11295,
-    comparePrice: 13995,
+    comparePrice: 10165,
     images: [
       "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",
     ],
@@ -327,7 +327,7 @@ const products = [
     slug: "adidas-samba-og",
     description: "Iconic retro sneakers with suede overlays and gum sole.",
     price: 9999,
-    comparePrice: 11999,
+    comparePrice: 8499,
     images: [
       "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600",
     ],
@@ -344,7 +344,7 @@ const products = [
     slug: "adidas-stan-smith",
     description: "Minimalist tennis-inspired sneakers with clean white finish.",
     price: 7999,
-    comparePrice: 9999,
+    comparePrice: 6399,
     images: [
       "https://images.unsplash.com/photo-1620794341491-7b9c3b8c0d1f?w=600",
     ],
@@ -361,7 +361,7 @@ const products = [
     slug: "puma-rs-x",
     description: "Chunky retro-futuristic sneakers with bold colorways.",
     price: 8999,
-    comparePrice: 10999,
+    comparePrice: 6749,
     images: [
       "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
     ],
@@ -378,7 +378,7 @@ const products = [
     slug: "new-balance-550",
     description: "Retro basketball sneakers with vintage court styling.",
     price: 12999,
-    comparePrice: 14999,
+    comparePrice: 9100,
     images: [
       "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600",
     ],
@@ -395,7 +395,7 @@ const products = [
     slug: "crocs-classic-clog",
     description: "Lightweight comfortable clogs with iconic ventilation ports.",
     price: 3995,
-    comparePrice: 4995,
+    comparePrice: 3595,
     images: [
       "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600",
     ],
@@ -412,7 +412,7 @@ const products = [
     slug: "levis-trucker-jacket",
     description: "Classic denim jacket with timeless rugged styling.",
     price: 5999,
-    comparePrice: 7999,
+    comparePrice: 5099,
     images: ["https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=600"],
     category: "clothing",
     brand: "levis",
@@ -427,7 +427,7 @@ const products = [
     slug: "nike-dri-fit-tshirt",
     description: "Breathable athletic t-shirt with sweat-wicking technology.",
     price: 1995,
-    comparePrice: 2495,
+    comparePrice: 1596,
     images: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600",
     ],
@@ -444,7 +444,7 @@ const products = [
     slug: "adidas-track-pants",
     description: "Comfortable tapered track pants with signature 3-stripes.",
     price: 3499,
-    comparePrice: 4499,
+    comparePrice: 2624,
     images: ["https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600"],
     category: "clothing",
     brand: "adidas",
@@ -463,7 +463,7 @@ const products = [
     slug: "hm-cotton-hoodie",
     description: "Soft everyday hoodie with relaxed fit and kangaroo pocket.",
     price: 2499,
-    comparePrice: 3499,
+    comparePrice: 1750,
     images: ["https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"],
     category: "clothing",
     brand: "hm",
@@ -478,7 +478,7 @@ const products = [
     slug: "zara-slim-fit-shirt",
     description: "Smart formal shirt with slim cut for a sharp look.",
     price: 2999,
-    comparePrice: 3999,
+    comparePrice: 2699,
     images: [
       "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600",
     ],
@@ -495,7 +495,7 @@ const products = [
     slug: "uniqlo-ultra-light-down",
     description: "Packable lightweight down jacket for cold weather warmth.",
     price: 5990,
-    comparePrice: 6990,
+    comparePrice: 5092,
     images: [
       "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600",
     ],
@@ -513,7 +513,7 @@ const products = [
     description:
       "Iconic aviator sunglasses with polarized lenses and metal frame.",
     price: 8990,
-    comparePrice: 10990,
+    comparePrice: 7192,
     images: [
       "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600",
     ],
@@ -530,7 +530,7 @@ const products = [
     slug: "fossil-gen-6",
     description: "Stylish hybrid smartwatch with health tracking and Wear OS.",
     price: 18995,
-    comparePrice: 23995,
+    comparePrice: 14246,
     images: [
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",
     ],
@@ -547,7 +547,7 @@ const products = [
     slug: "herschel-backpack",
     description: "Classic everyday backpack with padded laptop sleeve.",
     price: 6499,
-    comparePrice: 7999,
+    comparePrice: 4550,
     images: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"],
     category: "accessories",
     brand: "herschel",
@@ -566,7 +566,7 @@ const products = [
     slug: "fastrack-analog-watch",
     description: "Trendy analog watch with durable strap and minimalist dial.",
     price: 2495,
-    comparePrice: 3495,
+    comparePrice: 2245,
     images: [
       "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600",
     ],
@@ -583,7 +583,7 @@ const products = [
     slug: "american-tourister-trolley",
     description: "Durable hard-shell trolley with smooth spinner wheels.",
     price: 7999,
-    comparePrice: 11999,
+    comparePrice: 6799,
     images: [
       "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?w=600",
     ],
@@ -600,7 +600,7 @@ const products = [
     slug: "dyson-v12-vacuum",
     description: "Powerful cordless vacuum with laser dust detection.",
     price: 54900,
-    comparePrice: 62900,
+    comparePrice: 43920,
     images: ["https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600"],
     category: "home",
     brand: "dyson",
@@ -616,7 +616,7 @@ const products = [
     description:
       "Large capacity air fryer for healthier fried food with less oil.",
     price: 12995,
-    comparePrice: 16995,
+    comparePrice: 9746,
     images: [
       "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=600",
     ],
@@ -633,7 +633,7 @@ const products = [
     slug: "instant-pot-duo",
     description: "Multi-functional electric pressure cooker for fast meals.",
     price: 8999,
-    comparePrice: 11999,
+    comparePrice: 6300,
     images: [
       "https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",
     ],
@@ -650,7 +650,7 @@ const products = [
     slug: "mi-smart-led-tv-55",
     description: "4K Ultra HD smart TV with Dolby Vision and Android TV.",
     price: 38999,
-    comparePrice: 49999,
+    comparePrice: 35099,
     images: [
       "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",
     ],
@@ -668,7 +668,7 @@ const products = [
     description:
       "Premium coffee machine brewing espresso and coffee at one touch.",
     price: 15990,
-    comparePrice: 18990,
+    comparePrice: 13592,
     images: [
       "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600",
     ],
@@ -686,7 +686,7 @@ const products = [
     description:
       "Lightweight foundation with natural matte finish for all skin tones.",
     price: 549,
-    comparePrice: 699,
+    comparePrice: 439,
     images: [
       "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600",
     ],
@@ -703,7 +703,7 @@ const products = [
     slug: "the-ordinary-niacinamide",
     description: "Concentrated serum to reduce blemishes and balance oil.",
     price: 590,
-    comparePrice: 750,
+    comparePrice: 442,
     images: [
       "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600",
     ],
@@ -720,7 +720,7 @@ const products = [
     slug: "cetaphil-gentle-cleanser",
     description: "Mild face wash suitable for sensitive and dry skin.",
     price: 899,
-    comparePrice: 1099,
+    comparePrice: 630,
     images: ["https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600"],
     category: "beauty",
     brand: "cetaphil",
@@ -735,7 +735,7 @@ const products = [
     slug: "wild-stone-perfume",
     description: "Long-lasting woody fragrance for everyday wear.",
     price: 449,
-    comparePrice: 599,
+    comparePrice: 404,
     images: [
       "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600",
     ],
@@ -753,7 +753,7 @@ const products = [
     description:
       "Lightweight graphite racket for powerful and controlled play.",
     price: 4999,
-    comparePrice: 6999,
+    comparePrice: 4249,
     images: [
       "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600",
     ],
@@ -770,7 +770,7 @@ const products = [
     slug: "cosco-football-size-5",
     description: "Durable match football with good grip and bounce.",
     price: 899,
-    comparePrice: 1299,
+    comparePrice: 719,
     images: [
       "https://images.unsplash.com/photo-1614632537190-23e4146777db?w=600",
     ],
@@ -787,7 +787,7 @@ const products = [
     slug: "boldfit-yoga-mat",
     description: "Anti-slip cushioned yoga mat for comfortable workouts.",
     price: 799,
-    comparePrice: 1499,
+    comparePrice: 599,
     images: [
       "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=600",
     ],
@@ -804,7 +804,7 @@ const products = [
     slug: "powermax-dumbbells",
     description: "Space-saving adjustable dumbbell set for home gym.",
     price: 7999,
-    comparePrice: 11999,
+    comparePrice: 5600,
     images: [
       "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=600",
     ],
@@ -822,7 +822,7 @@ const products = [
     description:
       "Bestselling guide to building good habits and breaking bad ones.",
     price: 399,
-    comparePrice: 699,
+    comparePrice: 359,
     images: ["https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600"],
     category: "books",
     brand: "penguin",
