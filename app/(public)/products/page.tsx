@@ -1,3 +1,5 @@
+import ProductsFallback from "@/app/(public)/products/ProductsFallback";
+import ProductCard from "@/components/store/ProductCard";
 import { getProducts } from "@/lib/getProducts";
 
 type TProps = {
@@ -10,7 +12,25 @@ async function ProductsPage({ searchParams }: TProps) {
   console.log(products);
   return (
     <div>
-      <div className="content-wrapper"></div>
+      <div className="content-wrapper">
+        {products.length == 0 ? (
+          <ProductsFallback />
+        ) : (
+          <div>
+            <div className="mb-8">
+              <h1 className="text-3xl font-bold text-gray-800">All Products</h1>
+              <span className="text-muted-foreground mt-4">
+                {pagination.totalCount} products available
+              </span>
+            </div>
+            <div className="product-grid">
+              {products.map((product) => (
+                <ProductCard key={product.slug} product={product} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
