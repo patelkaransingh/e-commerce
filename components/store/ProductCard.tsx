@@ -1,7 +1,6 @@
 "use client";
 
 import { TProduct } from "@/types";
-import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -21,6 +20,7 @@ function ProductCard({ product }: ProductProps) {
   return (
     <Link href={`/products/${product.slug}`}>
       <Card className="relative mx-auto w-full max-w-sm pt-0">
+        {/* image with badge */}
         <div className="absolute inset-0 z-5 aspect-square bg-black/35" />
         <img
           src={product.images[0]}
@@ -42,11 +42,9 @@ function ProductCard({ product }: ProductProps) {
           </Badge>
         )}
 
+        {/* product info */}
         <CardHeader>
-          <CardAction>
-            <Badge variant="secondary">Featured</Badge>
-          </CardAction>
-          <CardTitle>Design systems meetup</CardTitle>
+          <CardTitle>{product.name}</CardTitle>
           <CardDescription>
             A practical talk on component APIs, accessibility, and shipping
             faster.
