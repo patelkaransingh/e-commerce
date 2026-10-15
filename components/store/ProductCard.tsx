@@ -21,12 +21,14 @@ function ProductCard({ product }: ProductProps) {
     <Link href={`/products/${product.slug}`}>
       <Card className="relative mx-auto w-full max-w-sm pt-0">
         {/* image with badge */}
-        <div className="absolute inset-0 z-5 aspect-square bg-black/35" />
-        <img
-          src={product.images[0]}
-          alt={product.slug}
-          className="relative z-10 aspect-square w-full object-cover"
-        />
+        <div className="group relative aspect-square overflow-hidden">
+          <div className="absolute inset-0 z-5 bg-black/35" />
+          <img
+            src={product.images[0]}
+            alt={product.slug}
+            className="relative z-10 aspect-square w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-135"
+          />
+        </div>
 
         {product.stock > 0 ? (
           // show discount if there is stock
@@ -45,12 +47,9 @@ function ProductCard({ product }: ProductProps) {
         {/* product info */}
         <CardHeader>
           <CardTitle>{product.name}</CardTitle>
-          <CardDescription>
-            A practical talk on component APIs, accessibility, and shipping
-            faster.
-          </CardDescription>
+          <CardDescription>{product.description}</CardDescription>
         </CardHeader>
-        <CardFooter>footer</CardFooter>
+        {/* <CardFooter>footer</CardFooter> */}
       </Card>
     </Link>
   );

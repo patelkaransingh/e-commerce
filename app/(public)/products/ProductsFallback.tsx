@@ -7,28 +7,31 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/components/ui/empty";
-import { ListClock } from "lucide-react";
+import {
+  Heater,
+  ListClock,
+  Shirt,
+  SportShoe,
+  TabletSmartphone,
+} from "lucide-react";
 function ProductsFallback() {
   return (
-    <div className="content-wrapper">
-      <Empty className="py-36 border border-dashed border-gray-400">
-        <EmptyHeader>
-          <EmptyMedia className="text-gray-700">
-            <p className="text-gray-400">
-              <ListClock size={80} strokeWidth={1.5} />
-            </p>
-          </EmptyMedia>
-          <EmptyTitle className="text-gray-600">
-            It's not you, it's us
-          </EmptyTitle>
-          <EmptyDescription className="font-medium">
-            We are updating the inventory for you, please come back later to
-            check-out new collection.
-          </EmptyDescription>
-        </EmptyHeader>
-        {/* EmptyContent if you want to show any buttons or anything */}
-      </Empty>{" "}
-    </div>
+    <Empty className="h-[70vh] border border-solid border-gray-300 bg-white">
+      <EmptyHeader>
+        <EmptyMedia className="text-gray-700">
+          <p className="text-gray-400 flex items-center gap-2">
+            <Heater size={40} strokeWidth={1.5} />
+            <SportShoe size={40} strokeWidth={1.5} />
+            <TabletSmartphone size={40} strokeWidth={1.5} />
+          </p>
+        </EmptyMedia>
+        <EmptyTitle className="text-gray-600">No Items Available !</EmptyTitle>
+        <EmptyDescription className="font-medium">
+          Please clear any filter combinations if applied..
+        </EmptyDescription>
+      </EmptyHeader>
+      {/* EmptyContent if you want to show any buttons or anything */}
+    </Empty>
   );
 }
 

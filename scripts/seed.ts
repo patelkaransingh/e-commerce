@@ -1539,7 +1539,7 @@ const products = [
     price: 1999,
     comparePrice: 2499,
     images: [
-      "https://images.unsplash.com/photo-1506629905607-d9c297d3c9e4?w=600",
+      "https://images.unsplash.com/photo-1617085606193-6b17105cff2a?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     ],
     category: "clothing",
     brand: "decathlon",
@@ -1721,7 +1721,7 @@ const products = [
     price: 39900,
     comparePrice: 44900,
     images: [
-      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600",
+      "https://images.unsplash.com/photo-1730299788623-12cded84cf40?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     ],
     category: "home",
     brand: "dyson",
