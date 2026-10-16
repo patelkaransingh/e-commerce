@@ -1,7 +1,9 @@
 "use client";
 
-import { TFilters } from "@/types";
+import { cn } from "cn";
+import { Square, SquareCheck, SquareDashedX, Star } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -10,10 +12,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Square, SquareCheck, SquareDashedX, Star } from "lucide-react";
-import { cn } from "cn";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import type { TFilters } from "@/types";
 
 type TFilterProps = {
   filters: TFilters;
@@ -66,8 +66,8 @@ function FilterSidebar({ filters }: TFilterProps) {
         {/* filter by category */}
         <div className="flex flex-col gap-2 rounded-md bg-purple-50 p-2">
           <h3 className="text-sm font-semibold">Category</h3>
-          <ScrollArea className="h-25 w-48 rounded-md">
-            <div className="flex flex-col gap-1.5">
+          <ScrollArea className="h-25 w-full rounded-md">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-0.5">
               {filters.categories.map((category) => (
                 <button
                   key={category}
@@ -78,7 +78,7 @@ function FilterSidebar({ filters }: TFilterProps) {
                     )
                   }
                   className={cn(
-                    "text-sm flex gap-1 items-center ml-1 capitalize",
+                    "flex gap-1 items-center w-full px-2 capitalize min-h-8 text-[16px] lg:text-sm",
                     isActive("category", category)
                       ? "text-primary font-semibold"
                       : "text-gray-600 hover:text-text",
@@ -103,8 +103,8 @@ function FilterSidebar({ filters }: TFilterProps) {
         {/* filter by brand */}
         <div className="flex flex-col gap-2 rounded-md bg-purple-50 p-2">
           <h3 className="text-sm font-semibold">Brand</h3>
-          <ScrollArea className="h-30 w-48 rounded-md">
-            <div className="flex flex-col gap-1.5">
+          <ScrollArea className="h-50 w-full rounded-md">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-0.5">
               {filters.brands.map((brand) => (
                 <button
                   key={brand}
@@ -112,7 +112,7 @@ function FilterSidebar({ filters }: TFilterProps) {
                     updateFilter("brand", isActive("brand", brand) ? "" : brand)
                   }
                   className={cn(
-                    "text-sm flex gap-1 items-center ml-1 capitalize",
+                    "flex gap-1 items-center w-full px-2 capitalize min-h-8 text-[16px] lg:text-sm",
                     isActive("brand", brand)
                       ? "text-primary font-semibold"
                       : "text-gray-600 hover:text-text",
@@ -137,8 +137,8 @@ function FilterSidebar({ filters }: TFilterProps) {
         {/* filter by rating */}
         <div className="flex flex-col gap-2 rounded-md bg-purple-50 p-2">
           <h3 className="text-sm font-semibold">Rating</h3>
-          <ScrollArea className="h-25 w-48 rounded-md">
-            <div className="flex flex-col gap-1.5">
+          <ScrollArea className="h20 lg:h-35 w-full rounded-md">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-0.5">
               {filters.ratings.map((rating) => (
                 <button
                   key={rating}
@@ -149,7 +149,7 @@ function FilterSidebar({ filters }: TFilterProps) {
                     )
                   }
                   className={cn(
-                    "text-sm flex gap-1 items-center ml-1 capitalize",
+                    "flex gap-1 items-center w-full px-2 capitalize min-h-8 text-[16px] lg:text-sm",
                     isActive("rating", String(rating))
                       ? "text-primary font-semibold"
                       : "text-gray-600 hover:text-text",
@@ -178,8 +178,8 @@ function FilterSidebar({ filters }: TFilterProps) {
             ₹{filters.priceRange.min.toLocaleString("en-IN")} — ₹
             {filters.priceRange.max.toLocaleString("en-IN")}
           </p>
-          <ScrollArea className="h-20 w-48 rounded-md">
-            <div className="flex flex-col gap-1.5">
+          <ScrollArea className="h-25 w-full rounded-md">
+            <div className="grid grid-cols-1 gap-0.5">
               <button
                 onClick={() =>
                   updateFilter(
@@ -188,7 +188,7 @@ function FilterSidebar({ filters }: TFilterProps) {
                   )
                 }
                 className={cn(
-                  "text-sm flex gap-1 items-center ml-1 capitalize",
+                  "flex gap-1 items-center w-full px-2 capitalize min-h-8 text-[16px] lg:text-sm",
                   isActive("maxPrice", "5000")
                     ? "text-primary font-semibold"
                     : "text-gray-600 hover:text-text",
@@ -214,7 +214,7 @@ function FilterSidebar({ filters }: TFilterProps) {
                   )
                 }
                 className={cn(
-                  "text-sm flex gap-1 items-center ml-1 capitalize",
+                  "flex gap-1 items-center w-full px-2 capitalize min-h-8 text-[16px] lg:text-sm",
                   isActive("maxPrice", "20000")
                     ? "text-primary font-semibold"
                     : "text-gray-600 hover:text-text",
@@ -240,7 +240,7 @@ function FilterSidebar({ filters }: TFilterProps) {
                   )
                 }
                 className={cn(
-                  "text-sm flex gap-1 items-center ml-1 capitalize",
+                  "flex gap-1 items-center w-full px-2 capitalize min-h-8 text-[16px] lg:text-sm",
                   isActive("minPrice", "50000")
                     ? "text-primary font-semibold"
                     : "text-gray-600 hover:text-text",

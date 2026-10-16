@@ -1,5 +1,6 @@
 import ProductsFallback from "@/app/(public)/products/ProductsFallback";
 import ActiveFilters from "@/components/store/ActiveFilters";
+import FilterDrawer from "@/components/store/FilterDrawer";
 import FilterSidebar from "@/components/store/FilterSidebar";
 import ProductCard from "@/components/store/ProductCard";
 import { getProducts } from "@/lib/getProducts";
@@ -32,6 +33,9 @@ async function ProductsPage({ searchParams }: TProps) {
               </div>
               <div className="flex gap-2">
                 {/* filter for small screens + global sorting */}
+                <div className="lg:hidden">
+                  <FilterDrawer filters={filters} />
+                </div>
               </div>
             </div>
             <ActiveFilters />
