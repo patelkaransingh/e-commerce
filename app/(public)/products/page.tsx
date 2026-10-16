@@ -1,4 +1,5 @@
 import ProductsFallback from "@/app/(public)/products/ProductsFallback";
+import ActiveFilters from "@/components/store/ActiveFilters";
 import FilterSidebar from "@/components/store/FilterSidebar";
 import ProductCard from "@/components/store/ProductCard";
 import { getProducts } from "@/lib/getProducts";
@@ -19,16 +20,27 @@ async function ProductsPage({ searchParams }: TProps) {
                   below div css depend on element <aside> parent <div> 
                   basically marging here is width(<aside>) + gap(<div>)
               */}
-          <div className="mb-8 md:ml-53 lg:ml-68">
-            <h1 className="text-3xl font-bold text-gray-800">All Products</h1>
-            <span className="text-muted-foreground mt-4">
-              {pagination.totalCount} products available
-            </span>
+          <div className="mb-6 lg:ml-68">
+            <div className="flex justify-between">
+              <div id="products-header">
+                <h1 className="text-3xl font-bold text-gray-800">
+                  All Products
+                </h1>
+                <span className="text-muted-foreground mt-4">
+                  {pagination.totalCount} products available
+                </span>
+              </div>
+              <div className="flex gap-2">
+                {/* filter for small screens + global sorting */}
+              </div>
+            </div>
+            <ActiveFilters />
           </div>
 
           {/* filter + Products */}
           <div className="flex flex-col md:flex-row gap-4">
-            <aside className="md:w-49 lg:w-64 shrink-0">
+            {/* filter for large screens */}
+            <aside className="hidden lg:block lg:w-64 shrink-0">
               <FilterSidebar filters={filters} />
             </aside>
 

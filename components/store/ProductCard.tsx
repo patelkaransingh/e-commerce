@@ -39,7 +39,10 @@ function ProductCard({ product }: ProductProps) {
           )
         ) : (
           // else show out of stock
-          <Badge variant={"destructive"} className="corner-tag font-semibold">
+          <Badge
+            variant={"destructive"}
+            className="corner-tag font-semibold text-white bg-red-500"
+          >
             Out of Stock!
           </Badge>
         )}

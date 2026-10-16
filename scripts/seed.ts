@@ -1585,7 +1585,7 @@ const products = [
     price: 6995,
     comparePrice: 7995,
     images: [
-      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600",
+      "https://images.unsplash.com/photo-1605583972593-1fda24a7bea2?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     ],
     category: "accessories",
     brand: "casio",

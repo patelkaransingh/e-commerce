@@ -7,7 +7,6 @@ import {
   CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -15,7 +14,6 @@ import { Button } from "@/components/ui/button";
 import { Square, SquareCheck, SquareDashedX, Star } from "lucide-react";
 import { cn } from "cn";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { string } from "zod";
 
 type TFilterProps = {
   filters: TFilters;
@@ -58,7 +56,7 @@ function FilterSidebar({ filters }: TFilterProps) {
         <CardDescription>Filter Products</CardDescription>
         <CardAction>
           {activeFilters > 0 && (
-            <Button variant="ghost">
+            <Button variant="ghost" onClick={clearAll}>
               <SquareDashedX className="text-red-600" />
             </Button>
           )}
